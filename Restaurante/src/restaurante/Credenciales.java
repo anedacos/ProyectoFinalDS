@@ -5,6 +5,8 @@
  */
 package restaurante;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Antho
@@ -19,4 +21,5 @@ public interface Credenciales {
     LoginAdmin loginAdmin = new LoginAdmin();
     AgregarEmpleado agregarEmpleado = new AgregarEmpleado();
     DespedirEmpleado despedirEmpleado = new DespedirEmpleado();
+    
 }

@@ -58,6 +58,11 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
 
         jButtonNominaDeEmpleados.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonNominaDeEmpleados.setText("Nomina de empleados");
+        jButtonNominaDeEmpleados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNominaDeEmpleadosActionPerformed(evt);
+            }
+        });
 
         jButtonGenerarReporte.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonGenerarReporte.setText("Generar reporte");
@@ -130,6 +135,12 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
         this.dispose();
         despedirEmpleado.setVisible(true);
     }//GEN-LAST:event_jButtonDespedirEmpleadoActionPerformed
+
+    private void jButtonNominaDeEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNominaDeEmpleadosActionPerformed
+        this.dispose();
+        NominaDeEmpleados nomina = new NominaDeEmpleados();
+        nomina.setVisible(true);
+    }//GEN-LAST:event_jButtonNominaDeEmpleadosActionPerformed
 
     /**
      * @param args the command line arguments

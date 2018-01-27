@@ -13,6 +13,7 @@ import javax.swing.*;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -164,6 +165,26 @@ public class MySQL {
             JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos");
+        }
+    }
+    
+    public void obtenerTablaEmpleado(DefaultTableModel modeloTabla) {
+        try {
+            String Query = "SELECT * FROM empleado";
+            Statement st = Conexion.createStatement();
+            java.sql.ResultSet resultSet;
+            resultSet = st.executeQuery(Query);
+            Object datos[] = new Object[9];
+
+            while (resultSet.next()) {
+                for (int i = 0; i < 9; i++) {
+                    datos[i] = resultSet.getObject(i+1);
+                }
+                modeloTabla.addRow(datos);                
+            }
+            resultSet.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
         }
     }
 
