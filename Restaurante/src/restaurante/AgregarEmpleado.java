@@ -212,9 +212,7 @@ public class AgregarEmpleado extends javax.swing.JFrame implements Credenciales{
     }//GEN-LAST:event_jComboBoxSexoActionPerformed
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
-        try {
-            MySQL db = new MySQL();
-            db.MySQLConnection(usuario, contrasenia , BD);
+        try {            
             db.insertarEmpleado("empleado", jTextFieldID.getText(),
                     jTextFieldNombre.getText(),
                     jTextFieldApellido.getText(),
@@ -223,18 +221,10 @@ public class AgregarEmpleado extends javax.swing.JFrame implements Credenciales{
                     jTextFieldTelefono.getText(),
                     jComboBoxCargo.getSelectedItem().toString(),
                     jTextFieldUsuario.getText(),
-                    jTextFieldContrasenia.getText());
-            System.out.println("empleado"+ jTextFieldID.getText()+
-                    jTextFieldNombre.getText()+
-                    jTextFieldApellido.getText()+
-                    jTextFieldEdad.getText()+
-                    jComboBoxSexo.getSelectedItem().toString()+
-                    jTextFieldTelefono.getText()+
-                    jComboBoxCargo.getSelectedItem().toString()+
-                    jTextFieldUsuario.getText()+
-                    jTextFieldContrasenia.getText());
-            db.closeConnection();
-            //this.dispose();
+                    jTextFieldContrasenia.getText());            
+            //db.closeConnection();
+            this.dispose();
+            administrador.setVisible(true);
         } catch (Exception ex) {
             Logger.getLogger(AgregarEmpleado.class.getName()).log(Level.SEVERE, null, ex);
         }

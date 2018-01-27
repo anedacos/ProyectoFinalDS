@@ -7,17 +7,18 @@ package restaurante;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Admin
  */
-public class Window_Delete extends javax.swing.JFrame {
+public class DespedirEmpleado extends javax.swing.JFrame implements Credenciales{
 
     /**
      * Creates new form Window_Register
      */
-    public Window_Delete() {
+    public DespedirEmpleado() {
         initComponents();
     }
 
@@ -31,7 +32,7 @@ public class Window_Delete extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonBorrarRegistro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jTextFieldID = new javax.swing.JTextField();
 
@@ -39,10 +40,10 @@ public class Window_Delete extends javax.swing.JFrame {
 
         jLabel1.setText("ID:");
 
-        jButton1.setText("Borrar registro");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBorrarRegistro.setText("Borrar registro");
+        jButtonBorrarRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonBorrarRegistroActionPerformed(evt);
             }
         });
 
@@ -66,7 +67,7 @@ public class Window_Delete extends javax.swing.JFrame {
                         .addGap(52, 52, 52)
                         .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonBorrarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
@@ -80,7 +81,7 @@ public class Window_Delete extends javax.swing.JFrame {
                     .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jButtonBorrarRegistro)
                     .addComponent(jButton2))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -88,17 +89,20 @@ public class Window_Delete extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        MySQL db = new MySQL();
+    private void jButtonBorrarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarRegistroActionPerformed
+        //MySQL db = new MySQL();
         try {
-            db.MySQLConnection("root", "GerEman0034", "MySQL_Test");
-            db.deleteRecord("Registros", jTextFieldID.getText());
-            db.closeConnection();
+            //db.MySQLConnection("root", "GerEman0034", "MySQL_Test");
+            db.deleteRecord("empleado", jTextFieldID.getText());
+            //JOptionPane.showMessageDialog(null, "Empleado borrado exitosamente");
+            //db.closeConnection();
             this.dispose();
+            administrador.setVisible(true);
         } catch (Exception ex) {
-            Logger.getLogger(Window_Delete.class.getName()).log(Level.SEVERE, null, ex);
+            //JOptionPane.showMessageDialog(null, "Error borrando el registro especificado");
+            Logger.getLogger(DespedirEmpleado.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonBorrarRegistroActionPerformed
 
     private void jTextFieldIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIDActionPerformed
         // TODO add your handling code here:
@@ -121,14 +125,18 @@ public class Window_Delete extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Window_Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DespedirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Window_Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DespedirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Window_Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DespedirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Window_Delete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DespedirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -137,14 +145,14 @@ public class Window_Delete extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Window_Delete().setVisible(true);
+                new DespedirEmpleado().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonBorrarRegistro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTextField jTextFieldID;
     // End of variables declaration//GEN-END:variables

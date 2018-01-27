@@ -113,10 +113,10 @@ public class MySQL {
 
     public void deleteRecord(String table_name, String ID) {
         try {
-            String Query = "DELETE FROM " + table_name + " WHERE ID = \"" + ID + "\"";
+            String Query = "DELETE FROM " + table_name + " WHERE cedula = " + ID;
             Statement st = Conexion.createStatement();
             st.executeUpdate(Query);
-
+            JOptionPane.showMessageDialog(null, "Empleado borrado exitosamente");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error borrando el registro especificado");

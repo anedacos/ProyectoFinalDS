@@ -18,4 +18,5 @@ public interface Credenciales {
     Sistema sistema=new Sistema();
     LoginAdmin loginAdmin = new LoginAdmin();
     AgregarEmpleado agregarEmpleado = new AgregarEmpleado();
+    DespedirEmpleado despedirEmpleado = new DespedirEmpleado();
 }

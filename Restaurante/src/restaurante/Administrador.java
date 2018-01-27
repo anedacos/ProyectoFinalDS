@@ -28,10 +28,10 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonAgregarEmpleado = new javax.swing.JButton();
+        jButtonDespedirEmpleado = new javax.swing.JButton();
+        jButtonNominaDeEmpleados = new javax.swing.JButton();
+        jButtonGenerarReporte = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -40,22 +40,27 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("SISTEMA ADMINISTRADOR");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("Agregar empleado");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgregarEmpleado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonAgregarEmpleado.setText("Agregar empleado");
+        jButtonAgregarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAgregarEmpleadoActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton2.setText("Despedir Empleado");
+        jButtonDespedirEmpleado.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonDespedirEmpleado.setText("Despedir Empleado");
+        jButtonDespedirEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDespedirEmpleadoActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton3.setText("Nomina de empleados");
+        jButtonNominaDeEmpleados.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonNominaDeEmpleados.setText("Nomina de empleados");
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton4.setText("Generar reporte");
+        jButtonGenerarReporte.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jButtonGenerarReporte.setText("Generar reporte");
 
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButtonSalir.setText("Salir");
@@ -74,12 +79,12 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonAgregarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(jButtonNominaDeEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonDespedirEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                            .addComponent(jButtonGenerarReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -97,12 +102,12 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonAgregarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDespedirEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonNominaDeEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(jButtonGenerarReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -116,10 +121,15 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
         sistema.setVisible(true);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarEmpleadoActionPerformed
         agregarEmpleado.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAgregarEmpleadoActionPerformed
+
+    private void jButtonDespedirEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDespedirEmpleadoActionPerformed
+        this.dispose();
+        despedirEmpleado.setVisible(true);
+    }//GEN-LAST:event_jButtonDespedirEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,10 +167,10 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAgregarEmpleado;
+    private javax.swing.JButton jButtonDespedirEmpleado;
+    private javax.swing.JButton jButtonGenerarReporte;
+    private javax.swing.JButton jButtonNominaDeEmpleados;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

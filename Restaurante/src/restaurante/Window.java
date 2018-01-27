@@ -135,7 +135,7 @@ public class Window extends javax.swing.JFrame implements Credenciales {
     }//GEN-LAST:event_jButtonGetActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
-        Window_Delete wd = new Window_Delete();
+        DespedirEmpleado wd = new DespedirEmpleado();
         wd.setVisible(true);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
