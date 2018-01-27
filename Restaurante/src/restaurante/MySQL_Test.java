@@ -11,7 +11,7 @@ package restaurante;
  */
 public class MySQL_Test implements Credenciales{
     public static void main(String[] args) throws Exception {
-        db.MySQLConnection(usuario, contraseña, BD);        
+        db.MySQLConnection(usuario, contrasenia, BD);        
         Sistema s = new Sistema();
         System.out.println(db.obtenerCargo("empleado", "anedacos"));
         s.setVisible(true);/*

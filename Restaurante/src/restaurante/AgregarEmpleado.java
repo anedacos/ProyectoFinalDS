@@ -12,12 +12,11 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-public class AgregarEmpleado extends javax.swing.JFrame {
+public class AgregarEmpleado extends javax.swing.JFrame implements Credenciales{
 
     /**
      * Creates new form Window_Delete
-     */   
-
+     */
     public AgregarEmpleado() {
         initComponents();
     }
@@ -41,8 +40,8 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         jTextFieldEdad = new javax.swing.JTextField();
         jComboBoxSexo = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonAceptar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -51,7 +50,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         jTextFieldTelefono = new javax.swing.JTextField();
         jComboBoxCargo = new javax.swing.JComboBox<>();
         jTextFieldUsuario = new javax.swing.JTextField();
-        jTextFieldContraseña = new javax.swing.JTextField();
+        jTextFieldContrasenia = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,14 +77,19 @@ public class AgregarEmpleado extends javax.swing.JFrame {
 
         jLabel5.setText("Edad:");
 
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAceptarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("INGRESO DE EMPLEADO");
 
@@ -103,7 +107,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Cajero", "Cocinero", "CMesas", "CPedidos", "Mesero" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,9 +115,9 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jButton1)
+                .addComponent(jButtonAceptar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jButtonCancelar)
                 .addGap(50, 50, 50))
             .addGroup(layout.createSequentialGroup()
                 .addGap(105, 105, 105)
@@ -143,11 +147,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNombre)
                             .addComponent(jTextFieldID)
-                            .addComponent(jTextFieldApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                            .addComponent(jTextFieldApellido)
                             .addComponent(jTextFieldTelefono)
                             .addComponent(jComboBoxCargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextFieldUsuario)
-                            .addComponent(jTextFieldContraseña))))
+                            .addComponent(jTextFieldContrasenia))))
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
@@ -188,11 +192,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonAceptar)
+                    .addComponent(jButtonCancelar))
                 .addContainerGap())
         );
 
@@ -207,25 +211,43 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxSexoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
             MySQL db = new MySQL();
-            db.MySQLConnection("root", "GerEman0034", "MySQL_Test");            
-            db.insertData("Registros", jTextFieldID.getText(),
-                jTextFieldNombre.getText(),
-                jTextFieldApellido.getText(),
-                jTextFieldEdad.getText(),
-                jComboBoxSexo.getSelectedItem().toString());
-        db.closeConnection();
-        this.dispose();
+            db.MySQLConnection(usuario, contrasenia , BD);
+            db.insertarEmpleado("empleado", jTextFieldID.getText(),
+                    jTextFieldNombre.getText(),
+                    jTextFieldApellido.getText(),
+                    jTextFieldEdad.getText(),
+                    jComboBoxSexo.getSelectedItem().toString(),
+                    jTextFieldTelefono.getText(),
+                    jComboBoxCargo.getSelectedItem().toString(),
+                    jTextFieldUsuario.getText(),
+                    jTextFieldContrasenia.getText());
+            System.out.println("empleado"+ jTextFieldID.getText()+
+                    jTextFieldNombre.getText()+
+                    jTextFieldApellido.getText()+
+                    jTextFieldEdad.getText()+
+                    jComboBoxSexo.getSelectedItem().toString()+
+                    jTextFieldTelefono.getText()+
+                    jComboBoxCargo.getSelectedItem().toString()+
+                    jTextFieldUsuario.getText()+
+                    jTextFieldContrasenia.getText());
+            db.closeConnection();
+            //this.dispose();
         } catch (Exception ex) {
             Logger.getLogger(AgregarEmpleado.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jTextFieldTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTelefonoActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        dispose();
+        administrador.setVisible(true);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,8 +288,8 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonAceptar;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JComboBox<String> jComboBoxCargo;
     private javax.swing.JComboBox<String> jComboBoxSexo;
     private javax.swing.JLabel jLabel1;
@@ -281,7 +303,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextFieldApellido;
-    private javax.swing.JTextField jTextFieldContraseña;
+    private javax.swing.JTextField jTextFieldContrasenia;
     private javax.swing.JTextField jTextFieldEdad;
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldNombre;

@@ -149,25 +149,16 @@ public class MySQL {
     
     public void insertarEmpleado(String table_name, String cedula, String nombre, String apellido, String sexo, String edad, String telefono, String cargo, String usuario, String contrasenia) {
         try {
-            String Query = "INSERT INTO " + table_name + " VALUES('" + cedula + "'" + "," + "'" +
-                    nombre + "'" + "," + "'" + 
-                    apellido + "'" + "," + "'" + 
-                    edad + "'" + "," + "'" +
-                    sexo + "'" + "," + "'" +
-                    telefono + "'" + "," + "'" +
-                    cargo + "'" + "," + "'" +
-                    usuario + "'" + "," + "'" +
-                    contrasenia + "'" + ")";
-            
-            
-            
-            
-            
-            /*+ "\"" + ID + "\", "
-                    + "\"" + name + "\", "
-                    + "\"" + lastname + "\", "
-                    + "\"" + age + "\", "
-                    + "\"" + gender + "\")"*/
+            String Query = "INSERT INTO " + table_name + " VALUES('" + cedula + "'" + ","
+                    + "'" + nombre + "'" + ","
+                    + "'" + apellido + "'" + ","
+                    + "'" + edad + "'" + ","
+                    + "'" + sexo + "'" + ","
+                    + "'" + telefono + "'" + ","
+                    + "'" + cargo + "'" + ","
+                    + "'" + usuario + "'" + ","
+                    + "'" + contrasenia + "'" + ")";
+            System.out.println(Query);
             Statement st = Conexion.createStatement();
             st.executeUpdate(Query);
             JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");

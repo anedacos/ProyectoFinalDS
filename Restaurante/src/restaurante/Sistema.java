@@ -7,6 +7,7 @@ package restaurante;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.application.Platform.exit;
 
 /**
  *
@@ -119,6 +120,7 @@ public class Sistema extends javax.swing.JFrame implements Credenciales {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         db.closeConnection();
+        System.exit(0); 
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**

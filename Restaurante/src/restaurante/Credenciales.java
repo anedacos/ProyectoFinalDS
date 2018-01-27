@@ -12,9 +12,10 @@ package restaurante;
 public interface Credenciales {    
     MySQL db = new MySQL();
     String usuario="root";
-    String contraseña="GerEman0034";
+    String contrasenia="GerEman0034";
     String BD="Restaurante";
     Administrador administrador = new Administrador();
     Sistema sistema=new Sistema();
     LoginAdmin loginAdmin = new LoginAdmin();
+    AgregarEmpleado agregarEmpleado = new AgregarEmpleado();
 }
