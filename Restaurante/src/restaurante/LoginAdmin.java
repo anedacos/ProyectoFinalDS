@@ -35,7 +35,7 @@ public class LoginAdmin extends javax.swing.JFrame implements Credenciales{
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
-        jTextFieldContraseña = new javax.swing.JTextField();
+        jTextFieldContrasenia = new javax.swing.JTextField();
         jButtonAceptar = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -83,7 +83,7 @@ public class LoginAdmin extends javax.swing.JFrame implements Credenciales{
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldContraseña)))))
+                                    .addComponent(jTextFieldContrasenia)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(jLabel3)))
@@ -101,7 +101,7 @@ public class LoginAdmin extends javax.swing.JFrame implements Credenciales{
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAceptar)
@@ -114,8 +114,8 @@ public class LoginAdmin extends javax.swing.JFrame implements Credenciales{
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
-            if(db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Administrador") && db.obtenerContraseña("empleado",jTextFieldUsuario.getText()).equals(jTextFieldContraseña.getText())){
-                //JOptionPane.showMessageDialog(null, "Si es");
+        	if(db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Administrador") && db.obtenerContrasenia("empleado",jTextFieldUsuario.getText()).equals(jTextFieldContrasenia.getText())){
+                   //JOptionPane.showMessageDialog(null, "Si es");
                 this.setVisible(false);
                 administrador.setVisible(true);
             }else{JOptionPane.showMessageDialog(null, "Acceso denegado, usted no es un administrador");}
@@ -171,7 +171,7 @@ public class LoginAdmin extends javax.swing.JFrame implements Credenciales{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextFieldContraseña;
+    private javax.swing.JTextField jTextFieldContrasenia;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }

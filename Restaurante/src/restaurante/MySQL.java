@@ -136,14 +136,14 @@ public class MySQL {
         return variable;      
     }
     
-    public String obtenerContraseña(String table_name, String usuario) throws SQLException {
+    public String obtenerContrasenia(String table_name, String usuario) throws SQLException {
         String Query = "SELECT * FROM " + table_name + " where usuario = " + "'"+usuario+"'";
         Statement st = Conexion.createStatement();
         java.sql.ResultSet resultSet;
         resultSet = st.executeQuery(Query);
         String variable="nulo";
         while (resultSet.next()) {
-        variable =resultSet.getString("contraseña");
+        variable =resultSet.getString("contrasenia");
         }
         return variable;      
     }
