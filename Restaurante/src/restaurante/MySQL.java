@@ -125,29 +125,29 @@ public class MySQL {
     }
 
     public String obtenerCargo(String table_name, String usuario) throws SQLException {
-        String Query = "SELECT * FROM " + table_name + " where usuario = " + "'"+usuario+"'";
+        String Query = "SELECT * FROM " + table_name + " where usuario = " + "'" + usuario + "'";
         Statement st = Conexion.createStatement();
         java.sql.ResultSet resultSet;
         resultSet = st.executeQuery(Query);
-        String variable="nulo";
+        String variable = "nulo";
         while (resultSet.next()) {
-        variable =resultSet.getString("cargo");
+            variable = resultSet.getString("cargo");
         }
-        return variable;      
+        return variable;
     }
-    
+
     public String obtenerContrasenia(String table_name, String usuario) throws SQLException {
-        String Query = "SELECT * FROM " + table_name + " where usuario = " + "'"+usuario+"'";
+        String Query = "SELECT * FROM " + table_name + " where usuario = " + "'" + usuario + "'";
         Statement st = Conexion.createStatement();
         java.sql.ResultSet resultSet;
         resultSet = st.executeQuery(Query);
-        String variable="nulo";
+        String variable = "nulo";
         while (resultSet.next()) {
-        variable =resultSet.getString("contrasenia");
+            variable = resultSet.getString("contrasenia");
         }
-        return variable;      
+        return variable;
     }
-    
+
     public void insertarEmpleado(String table_name, String cedula, String nombre, String apellido, String sexo, String edad, String telefono, String cargo, String usuario, String contrasenia) {
         try {
             String Query = "INSERT INTO " + table_name + " VALUES('" + cedula + "'" + ","
@@ -167,7 +167,7 @@ public class MySQL {
             JOptionPane.showMessageDialog(null, "Error en el almacenamiento de datos");
         }
     }
-    
+
     public void obtenerTablaEmpleado(DefaultTableModel modeloTabla) {
         try {
             String Query = "SELECT * FROM empleado";
@@ -178,9 +178,9 @@ public class MySQL {
 
             while (resultSet.next()) {
                 for (int i = 0; i < 9; i++) {
-                    datos[i] = resultSet.getObject(i+1);
+                    datos[i] = resultSet.getObject(i + 1);
                 }
-                modeloTabla.addRow(datos);                
+                modeloTabla.addRow(datos);
             }
             resultSet.close();
         } catch (SQLException ex) {
@@ -188,4 +188,42 @@ public class MySQL {
         }
     }
 
+    public void obtenerTablaSopas(JList<String> jList) {
+        try {
+            String Query = "SELECT nombre FROM menu where categoria = 'sopas'";
+            Statement st = Conexion.createStatement();
+            java.sql.ResultSet resultSet;
+            resultSet = st.executeQuery(Query);
+            Object[][] objeto = ResultSetToArray(resultSet);
+            String labels[] = new String[objeto.length];
+            for (int i = 0; i < objeto.length; i++) {
+                labels[i] = (String) objeto[i][0];
+            }
+            jList.setListData(labels);
+            resultSet.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
+        }
+    }
+
+    private Object[][] ResultSetToArray(ResultSet rs) {
+        Object obj[][] = null;
+        try {
+            rs.last();
+            ResultSetMetaData rsmd = rs.getMetaData();
+            int numCols = rsmd.getColumnCount();
+            int numFils = rs.getRow();
+            obj = new Object[numFils][numCols];
+            int j = 0;
+            rs.beforeFirst();
+            while (rs.next()) {
+                for (int i = 0; i < numCols; i++) {
+                    obj[j][i] = rs.getObject(i + 1);
+                }
+                j++;
+            }
+        } catch (Exception e) {
+        }
+        return obj;
+    }
 }

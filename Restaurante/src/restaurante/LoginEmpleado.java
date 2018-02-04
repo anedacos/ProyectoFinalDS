@@ -116,6 +116,7 @@ public class LoginEmpleado extends javax.swing.JFrame implements Credenciales{
         try {
             if(!db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Administrador") && !db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("nulo")&& db.obtenerContrasenia("empleado",jTextFieldUsuario.getText()).equals(jTextFieldContrasenia.getText())){
                 if(db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Mesero")){
+                    mesero.setVisible(true);                    
                 }
                 if(db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Cocinero")){
                 }

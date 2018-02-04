@@ -33,6 +33,7 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
         jButtonNominaDeEmpleados = new javax.swing.JButton();
         jButtonGenerarReporte = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
+        jButtonPrueba = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,6 +76,13 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
             }
         });
 
+        jButtonPrueba.setText("Prueba");
+        jButtonPrueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPruebaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +104,9 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
                         .addComponent(jLabel1)
                         .addGap(175, 175, 175))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(291, 291, 291)
+                .addGap(75, 75, 75)
+                .addComponent(jButtonPrueba)
+                .addGap(137, 137, 137)
                 .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -114,7 +124,9 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
                     .addComponent(jButtonNominaDeEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(jButtonGenerarReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonPrueba))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -141,6 +153,11 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
         NominaDeEmpleados nomina = new NominaDeEmpleados();
         nomina.setVisible(true);
     }//GEN-LAST:event_jButtonNominaDeEmpleadosActionPerformed
+
+    private void jButtonPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPruebaActionPerformed
+        Sopas sopas = new Sopas();
+        sopas.setVisible(true);       
+    }//GEN-LAST:event_jButtonPruebaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,6 +199,7 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
     private javax.swing.JButton jButtonDespedirEmpleado;
     private javax.swing.JButton jButtonGenerarReporte;
     private javax.swing.JButton jButtonNominaDeEmpleados;
+    private javax.swing.JButton jButtonPrueba;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

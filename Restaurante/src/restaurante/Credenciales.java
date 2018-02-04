@@ -21,5 +21,9 @@ public interface Credenciales {
     LoginAdmin loginAdmin = new LoginAdmin();
     AgregarEmpleado agregarEmpleado = new AgregarEmpleado();
     DespedirEmpleado despedirEmpleado = new DespedirEmpleado();
-    
+    Mesero mesero = new Mesero();
+    Mesas mesas = new Mesas();
+    NuevaCuenta nuevaCuenta = new NuevaCuenta();
+    ManipularCuentas manipularCuentas = new ManipularCuentas();
+    //Sopas sopas = new Sopas();
 }
