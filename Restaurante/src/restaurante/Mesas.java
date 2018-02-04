@@ -9,14 +9,19 @@ package restaurante;
  *
  * @author Antho
  */
-public class Mesas extends javax.swing.JFrame {
-
+public class Mesas extends javax.swing.JFrame implements Credenciales{
+    
     /**
      * Creates new form Mesas
      */
     public Mesas() {
         initComponents();
+        for (int i = 0; i < mesasCopadas.length; i++) {
+            mesasCopadas[i]=0;
+        }        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,6 +57,11 @@ public class Mesas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("2");
 
@@ -189,6 +199,10 @@ public class Mesas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,7 +237,6 @@ public class Mesas extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;

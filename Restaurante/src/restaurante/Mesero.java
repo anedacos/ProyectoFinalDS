@@ -59,7 +59,8 @@ public class Mesero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNuevoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoPedidoActionPerformed
-        // TODO add your handling code here:
+        Mesas mesas = new Mesas();
+        mesas.setVisible(true);
     }//GEN-LAST:event_jButtonNuevoPedidoActionPerformed
 
     /**

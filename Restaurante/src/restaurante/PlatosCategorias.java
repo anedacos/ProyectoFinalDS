@@ -14,29 +14,33 @@ import javax.swing.JList;
  *
  * @author Antho
  */
-public class Sopas extends javax.swing.JFrame implements Credenciales{
+public class PlatosCategorias extends javax.swing.JFrame implements Credenciales {
 
     /**
      * Creates new form Prueba
      */
-    public Sopas() {
-        initComponents();
-        db.obtenerTablaSopas(jList1);        
-        MouseListener mouseListener = new MouseAdapter() {
-      public void mouseClicked(MouseEvent mouseEvent) {
-        JList theList = (JList) mouseEvent.getSource();
-        if (mouseEvent.getClickCount() == 2) {
-          int index = theList.locationToIndex(mouseEvent.getPoint());
-          if (index >= 0) {
-            Object o = theList.getModel().getElementAt(index);
-            System.out.println("Double-clicked on: " + o.toString());
-          }
-        }
-      }
-    };
-    jList1.addMouseListener(mouseListener);
+    public PlatosCategorias() {
+        
     }
     
+    public PlatosCategorias(String categoria) {
+    initComponents();
+        db.obtenerPlatosPorCategoria(jList1,categoria);
+        
+        MouseListener mouseListener = new MouseAdapter() {
+            public void mouseClicked(MouseEvent mouseEvent) {
+                JList theList = (JList) mouseEvent.getSource();
+                if (mouseEvent.getClickCount() == 2) {
+                    int index = theList.locationToIndex(mouseEvent.getPoint());
+                    if (index >= 0) {
+                        Object o = theList.getModel().getElementAt(index);
+                        System.out.println("Double-clicked on: " + o.toString());
+                    }
+                }
+            }
+        };
+        jList1.addMouseListener(mouseListener);
+    }
     
 
     /**
@@ -92,21 +96,27 @@ public class Sopas extends javax.swing.JFrame implements Credenciales{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Sopas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlatosCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Sopas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlatosCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Sopas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlatosCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Sopas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlatosCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Sopas().setVisible(true);
+                new PlatosCategorias().setVisible(true);
             }
         });
     }

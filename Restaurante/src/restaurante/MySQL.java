@@ -188,9 +188,9 @@ public class MySQL {
         }
     }
 
-    public void obtenerTablaSopas(JList<String> jList) {
+    public void obtenerPlatosPorCategoria(JList<String> jList, String categoria) {
         try {
-            String Query = "SELECT nombre FROM menu where categoria = 'sopas'";
+            String Query = "SELECT nombre FROM menu where categoria=" + "'" +categoria+ "'";
             Statement st = Conexion.createStatement();
             java.sql.ResultSet resultSet;
             resultSet = st.executeQuery(Query);

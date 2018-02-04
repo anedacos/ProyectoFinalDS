@@ -155,8 +155,7 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
     }//GEN-LAST:event_jButtonNominaDeEmpleadosActionPerformed
 
     private void jButtonPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPruebaActionPerformed
-        Sopas sopas = new Sopas();
-        sopas.setVisible(true);       
+          
     }//GEN-LAST:event_jButtonPruebaActionPerformed
 
     /**

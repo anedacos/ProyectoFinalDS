@@ -25,5 +25,7 @@ public interface Credenciales {
     Mesas mesas = new Mesas();
     NuevaCuenta nuevaCuenta = new NuevaCuenta();
     ManipularCuentas manipularCuentas = new ManipularCuentas();
+    int[] mesasCopadas = new int[20];
+    AgregarCuenta agregarCuenta = new AgregarCuenta();
     //Sopas sopas = new Sopas();
 }
