@@ -27,12 +27,12 @@ public class MySQL {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + db_name, user, pass);
-            JOptionPane.showMessageDialog(null, "Se ha iniciado la conexión con el servidor de forma exitosa");
+            JOptionPane.showMessageDialog(null, "Se ha iniciado la conexion con el servidor de forma exitosa");
         } catch (ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "No se ha iniciado la conexión con el servidor de forma exitosa 1");
+            JOptionPane.showMessageDialog(null, "No se ha iniciado la conexion con el servidor de forma exitosa 1");
             Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se ha iniciado la conexión con el servidor de forma exitosa 2");
+            JOptionPane.showMessageDialog(null, "No se ha iniciado la conexion con el servidor de forma exitosa 2");
             Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -40,7 +40,7 @@ public class MySQL {
     public void closeConnection() {
         try {
             Conexion.close();
-            JOptionPane.showMessageDialog(null, "Se ha finalizado la conexión con el servidor");
+            JOptionPane.showMessageDialog(null, "Se ha finalizado la conexion con el servidor");
         } catch (SQLException ex) {
             Logger.getLogger(MySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -108,7 +108,7 @@ public class MySQL {
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
+            JOptionPane.showMessageDialog(null, "Error en la adquisicion de datos");
         }
     }
 
@@ -184,7 +184,7 @@ public class MySQL {
             }
             resultSet.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
+            JOptionPane.showMessageDialog(null, "Error en la adquisicion de datos");
         }
     }
 
@@ -202,7 +202,7 @@ public class MySQL {
             jList.setListData(labels);
             resultSet.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
+            JOptionPane.showMessageDialog(null, "Error en la adquisicion de datos");
         }
     }
 
