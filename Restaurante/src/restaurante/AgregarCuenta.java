@@ -9,7 +9,7 @@ package restaurante;
  *
  * @author Antho
  */
-public class AgregarCuenta extends javax.swing.JFrame {
+public class AgregarCuenta extends javax.swing.JFrame implements Credenciales {
 
     /**
      * Creates new form AgregarCuenta
@@ -32,12 +32,12 @@ public class AgregarCuenta extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButtonSopas = new javax.swing.JButton();
         jButtonArroces = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonEnsaladas = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jButtonGaseosas = new javax.swing.JButton();
+        jButtonAguas = new javax.swing.JButton();
+        jButtonAlcoholicas = new javax.swing.JButton();
+        jButtonJugosNaturales = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldNombreDelCliente = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
@@ -50,6 +50,8 @@ public class AgregarCuenta extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,17 +75,42 @@ public class AgregarCuenta extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Ensaladas");
+        jButtonEnsaladas.setText("Ensaladas");
+        jButtonEnsaladas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEnsaladasActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Bebidas");
 
-        jButton2.setText("Gaseosas");
+        jButtonGaseosas.setText("Gaseosas");
+        jButtonGaseosas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGaseosasActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Aguas");
+        jButtonAguas.setText("Aguas");
+        jButtonAguas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAguasActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Alcoholicas");
+        jButtonAlcoholicas.setText("Alcoholicas");
+        jButtonAlcoholicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlcoholicasActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Jugos naturales");
+        jButtonJugosNaturales.setText("Jugos naturales");
+        jButtonJugosNaturales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonJugosNaturalesActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Combos");
 
@@ -107,66 +134,81 @@ public class AgregarCuenta extends javax.swing.JFrame {
 
         jLabel12.setText("-----");
 
+        jButton9.setText("AGREGAR");
+
+        jButton10.setText("CANCELAR");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(jButton5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel5)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jButtonSopas)))
+                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonSopas)
-                                    .addComponent(jLabel2))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButtonArroces)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton1)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jTextFieldNombreDelCliente)))
+                                .addGap(95, 95, 95)
+                                .addComponent(jButtonEnsaladas)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jTextFieldNombreDelCliente)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonGaseosas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAlcoholicas))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonArroces)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4))
+                                .addComponent(jLabel5)
+                                .addGap(142, 142, 142))
+                            .addComponent(jButtonAguas))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton6)
-                                .addGap(18, 18, 18)
+                                .addGap(4, 4, 4)
+                                .addComponent(jButton6))
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton8))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))))))
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jButtonJugosNaturales)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,34 +229,42 @@ public class AgregarCuenta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldNombreDelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSopas)
-                    .addComponent(jButtonArroces)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3)
-                        .addComponent(jButton4))
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSopas)
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel4)
+                        .addGap(143, 143, 143))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextFieldNombreDelCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonArroces)
+                            .addComponent(jButtonEnsaladas))
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAlcoholicas)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButtonGaseosas)
+                                .addComponent(jButtonAguas)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonJugosNaturales)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton6)
+                            .addComponent(jButton7)
+                            .addComponent(jButton8))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -222,13 +272,44 @@ public class AgregarCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonArrocesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArrocesActionPerformed
-        // TODO add your handling code here:
+        PlatosCategorias pc = new PlatosCategorias("arroces");
+        pc.setVisible(true);
     }//GEN-LAST:event_jButtonArrocesActionPerformed
 
     private void jButtonSopasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSopasActionPerformed
         PlatosCategorias pc = new PlatosCategorias("sopas");
         pc.setVisible(true);
     }//GEN-LAST:event_jButtonSopasActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        mesas.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButtonEnsaladasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnsaladasActionPerformed
+        PlatosCategorias pc = new PlatosCategorias("ensaladas");
+        pc.setVisible(true);
+    }//GEN-LAST:event_jButtonEnsaladasActionPerformed
+
+    private void jButtonGaseosasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGaseosasActionPerformed
+        PlatosCategorias pc = new PlatosCategorias("gaseosas");
+        pc.setVisible(true);
+    }//GEN-LAST:event_jButtonGaseosasActionPerformed
+
+    private void jButtonAguasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAguasActionPerformed
+        PlatosCategorias pc = new PlatosCategorias("aguas");
+        pc.setVisible(true);
+    }//GEN-LAST:event_jButtonAguasActionPerformed
+
+    private void jButtonAlcoholicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlcoholicasActionPerformed
+        PlatosCategorias pc = new PlatosCategorias("alcohol");
+        pc.setVisible(true);
+    }//GEN-LAST:event_jButtonAlcoholicasActionPerformed
+
+    private void jButtonJugosNaturalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugosNaturalesActionPerformed
+        PlatosCategorias pc = new PlatosCategorias("jugos naturales");
+        pc.setVisible(true);
+    }//GEN-LAST:event_jButtonJugosNaturalesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,15 +347,17 @@ public class AgregarCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonAguas;
+    private javax.swing.JButton jButtonAlcoholicas;
     private javax.swing.JButton jButtonArroces;
+    private javax.swing.JButton jButtonEnsaladas;
+    private javax.swing.JButton jButtonGaseosas;
+    private javax.swing.JButton jButtonJugosNaturales;
     private javax.swing.JButton jButtonSopas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

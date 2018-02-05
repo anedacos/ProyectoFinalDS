@@ -36,7 +36,9 @@ public class PlatosCategorias extends javax.swing.JFrame implements Credenciales
                         Object o = theList.getModel().getElementAt(index);
                         System.out.println("Double-clicked on: " + o.toString());
                     }
+                    salir();
                 }
+                
             }
         };
         jList1.addMouseListener(mouseListener);
@@ -119,6 +121,9 @@ public class PlatosCategorias extends javax.swing.JFrame implements Credenciales
                 new PlatosCategorias().setVisible(true);
             }
         });
+    }
+    public void salir(){
+        this.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
