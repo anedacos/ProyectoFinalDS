@@ -9,7 +9,7 @@ package restaurante;
  *
  * @author Antho
  */
-public class Administrador extends javax.swing.JFrame implements Credenciales{
+public class Administrador extends javax.swing.JFrame{
 
     /**
      * Creates new form Administrador
@@ -123,16 +123,19 @@ public class Administrador extends javax.swing.JFrame implements Credenciales{
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         this.setVisible(false);
+        Sistema sistema = new Sistema();
         sistema.setVisible(true);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgregarEmpleadoActionPerformed
+        AgregarEmpleado agregarEmpleado = new AgregarEmpleado();
         agregarEmpleado.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAgregarEmpleadoActionPerformed
 
     private void jButtonDespedirEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDespedirEmpleadoActionPerformed
         this.dispose();
+        DespedirEmpleado despedirEmpleado = new DespedirEmpleado();
         despedirEmpleado.setVisible(true);
     }//GEN-LAST:event_jButtonDespedirEmpleadoActionPerformed
 

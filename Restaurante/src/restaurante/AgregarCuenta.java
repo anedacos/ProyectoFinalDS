@@ -9,7 +9,7 @@ package restaurante;
  *
  * @author Antho
  */
-public class AgregarCuenta extends javax.swing.JFrame implements Credenciales {
+public class AgregarCuenta extends javax.swing.JFrame{
 
     /**
      * Creates new form AgregarCuenta
@@ -282,6 +282,7 @@ public class AgregarCuenta extends javax.swing.JFrame implements Credenciales {
     }//GEN-LAST:event_jButtonSopasActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Mesas mesas = new Mesas();
         mesas.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed

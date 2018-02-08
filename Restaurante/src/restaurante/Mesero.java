@@ -9,7 +9,7 @@ package restaurante;
  *
  * @author Antho
  */
-public class Mesero extends javax.swing.JFrame implements Credenciales {
+public class Mesero extends javax.swing.JFrame{
 
     /**
      * Creates new form Mesero
@@ -74,11 +74,13 @@ public class Mesero extends javax.swing.JFrame implements Credenciales {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNuevoPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoPedidoActionPerformed
+        Mesas mesas= new Mesas();
         mesas.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonNuevoPedidoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Sistema sistema = new Sistema();
         sistema.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -117,6 +119,7 @@ public class Mesero extends javax.swing.JFrame implements Credenciales {
             }
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

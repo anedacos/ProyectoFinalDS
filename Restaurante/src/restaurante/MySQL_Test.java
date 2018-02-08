@@ -10,31 +10,13 @@ package restaurante;
  *
  * @author Admin
  */
-public class MySQL_Test implements Credenciales{
+public class MySQL_Test{
     public static void main(String[] args) throws Exception {
-        db.MySQLConnection(usuario, contrasenia, BD);        
+        MySQL db = new MySQL();
+        Credenciales c = new Credenciales();
+        db.MySQLConnection(c.usuario, c.contrasenia, c.BD);        
         Sistema s = new Sistema();
         System.out.println(db.obtenerCargo("empleado", "anedacos"));
-        s.setVisible(true);/*
-        Window w = new Window();
-        w.setVisible(true);*/
-        
-        /*String table_name="Nombre_tabla";
-        String ID="ID";
-        String name ="name";
-        String lastname="LastName";
-        String age="edad";
-        String gender ="genero";
-        
-        
-        System.out.println("INSERT INTO " + table_name + " VALUES('"+ID+"'"+","+"'"+name+"'"+","+"'"+lastname+"'"+","+"'"+age+"'"+","+"'"+gender+"'"+")");
-        MySQL db = new MySQL();
-        db.MySQLConnection("root","admin", "prueba");
-        db.createTable("TablaDePrueba");
-        db.insertData("TablaDePrueba", "1", "2","3","4","5");*/
-        /*MySQL db = new MySQL();
-        db.MySQLConnection("root","admin", "prueba");
-        //db.createTable("TablaDePrueba");
-        db.insertData("TablaDePrueba", "0931461016", "Anthony","3","4","5");*/
+        s.setVisible(true);
     }
 }

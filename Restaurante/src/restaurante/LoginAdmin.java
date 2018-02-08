@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Antho
  */
-public class LoginAdmin extends javax.swing.JFrame implements Credenciales{
+public class LoginAdmin extends javax.swing.JFrame{
 
     /**
      * Creates new form Login
@@ -164,7 +164,9 @@ public class LoginAdmin extends javax.swing.JFrame implements Credenciales{
             }
         });
     }
-
+Administrador administrador = new Administrador();
+MySQL db = new MySQL();
+Sistema sistema = new Sistema();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonCancelar;

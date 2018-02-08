@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-public class AgregarEmpleado extends javax.swing.JFrame implements Credenciales{
+public class AgregarEmpleado extends javax.swing.JFrame{
 
     /**
      * Creates new form Window_Delete
@@ -276,7 +276,8 @@ public class AgregarEmpleado extends javax.swing.JFrame implements Credenciales{
             }
         });
     }
-
+Administrador administrador = new Administrador();
+MySQL db = new MySQL();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonCancelar;

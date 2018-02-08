@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Admin
  */
-public class DespedirEmpleado extends javax.swing.JFrame implements Credenciales{
+public class DespedirEmpleado extends javax.swing.JFrame{
 
     /**
      * Creates new form Window_Register
@@ -159,7 +159,8 @@ public class DespedirEmpleado extends javax.swing.JFrame implements Credenciales
             }
         });
     }
-
+Administrador administrador = new Administrador();
+MySQL db = new MySQL();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBorrarRegistro;
     private javax.swing.JButton jButtonCancelar;

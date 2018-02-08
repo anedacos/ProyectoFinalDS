@@ -13,7 +13,7 @@ import static javafx.application.Platform.exit;
  *
  * @author Antho
  */
-public class Sistema extends javax.swing.JFrame implements Credenciales {
+public class Sistema extends javax.swing.JFrame{
 
     /**
      * Creates new form Sistema
@@ -106,6 +106,11 @@ public class Sistema extends javax.swing.JFrame implements Credenciales {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        db.closeConnection();
+        System.exit(0); 
+    }//GEN-LAST:event_jButtonSalirActionPerformed
+
     private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
         LoginAdmin login = new LoginAdmin();
         this.setVisible(false);
@@ -117,11 +122,6 @@ public class Sistema extends javax.swing.JFrame implements Credenciales {
         this.setVisible(false);
         login.setVisible(true);
     }//GEN-LAST:event_jButtonEmpleadoActionPerformed
-
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        db.closeConnection();
-        System.exit(0); 
-    }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,7 +161,7 @@ public class Sistema extends javax.swing.JFrame implements Credenciales {
             }
         });
     }
-
+MySQL db = new MySQL();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdmin;
     private javax.swing.JButton jButtonEmpleado;

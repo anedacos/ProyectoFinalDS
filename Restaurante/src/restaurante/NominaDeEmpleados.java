@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Antho
  */
-public class NominaDeEmpleados extends javax.swing.JFrame implements Credenciales {
+public class NominaDeEmpleados extends javax.swing.JFrame{
     
     DefaultTableModel modeloTabla;
     private static Connection Conexion;
@@ -124,7 +124,8 @@ public class NominaDeEmpleados extends javax.swing.JFrame implements Credenciale
             }
         });
     }
-
+Administrador administrador = new Administrador();
+MySQL db = new MySQL();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;

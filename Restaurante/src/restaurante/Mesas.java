@@ -9,7 +9,7 @@ package restaurante;
  *
  * @author Antho
  */
-public class Mesas extends javax.swing.JFrame implements Credenciales{
+public class Mesas extends javax.swing.JFrame{
     
     /**
      * Creates new form Mesas
@@ -257,6 +257,8 @@ public class Mesas extends javax.swing.JFrame implements Credenciales{
             }
         });
     }
+    AgregarCuenta agregarCuenta = new AgregarCuenta();
+    Mesero mesero = new Mesero();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;

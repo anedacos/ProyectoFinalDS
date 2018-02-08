@@ -9,7 +9,7 @@ package restaurante;
  *
  * @author Antho
  */
-public class NuevaCuenta extends javax.swing.JFrame implements Credenciales{
+public class NuevaCuenta extends javax.swing.JFrame{
 
     /**
      * Creates new form NuevaCuenta
@@ -120,7 +120,8 @@ public class NuevaCuenta extends javax.swing.JFrame implements Credenciales{
             }
         });
     }
-
+AgregarCuenta agregarCuenta = new AgregarCuenta();
+Mesas mesas = new Mesas();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonNuevaCuenta;

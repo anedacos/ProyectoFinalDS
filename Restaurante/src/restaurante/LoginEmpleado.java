@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Antho
  */
-public class LoginEmpleado extends javax.swing.JFrame implements Credenciales{
+public class LoginEmpleado extends javax.swing.JFrame{
 
     /**
      * Creates new form Login
@@ -114,8 +114,11 @@ public class LoginEmpleado extends javax.swing.JFrame implements Credenciales{
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
+            MySQL db = new MySQL();
             if(!db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Administrador") && !db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("nulo")&& db.obtenerContrasenia("empleado",jTextFieldUsuario.getText()).equals(jTextFieldContrasenia.getText())){
                 if(db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Mesero")){
+                    Mesero mesero =  new Mesero();
+                    this.dispose();
                     mesero.setVisible(true);                    
                 }
                 if(db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Cocinero")){
@@ -137,6 +140,7 @@ public class LoginEmpleado extends javax.swing.JFrame implements Credenciales{
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         this.setVisible(false);
+        Sistema sistema = new Sistema();
         sistema.setVisible(true);        
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
@@ -177,6 +181,8 @@ public class LoginEmpleado extends javax.swing.JFrame implements Credenciales{
             }
         });
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;

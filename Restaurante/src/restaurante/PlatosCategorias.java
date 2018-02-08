@@ -14,7 +14,7 @@ import javax.swing.JList;
  *
  * @author Antho
  */
-public class PlatosCategorias extends javax.swing.JFrame implements Credenciales {
+public class PlatosCategorias extends javax.swing.JFrame{
 
     /**
      * Creates new form Prueba
@@ -125,7 +125,7 @@ public class PlatosCategorias extends javax.swing.JFrame implements Credenciales
     public void salir(){
         this.setVisible(false);
     }
-
+MySQL db = new MySQL();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;

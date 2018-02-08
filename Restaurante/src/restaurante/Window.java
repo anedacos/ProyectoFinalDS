@@ -14,15 +14,14 @@ import java.util.logging.Logger;
  *
  * @author Admin
  */
-public class Window extends javax.swing.JFrame implements Credenciales {
+public class Window extends javax.swing.JFrame{
 
     /**
      * Creates new form Window
      */
     
 
-    public Window() {
-        System.out.println(usuario);
+    public Window() {        
         setLocationRelativeTo(null);        
         initComponents();
     }
@@ -173,6 +172,7 @@ public class Window extends javax.swing.JFrame implements Credenciales {
             }
         });
     }
+MySQL db = new MySQL();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonConnect;
