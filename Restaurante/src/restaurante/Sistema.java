@@ -21,6 +21,7 @@ public class Sistema extends javax.swing.JFrame{
     public Sistema()  {
         try {                
         //setLocationRelativeTo(null);
+        db.contarCuentas();
         initComponents();
         } catch (Exception ex) {
             Logger.getLogger(Sistema.class.getName()).log(Level.SEVERE, null, ex);
@@ -36,28 +37,19 @@ public class Sistema extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonAdmin = new javax.swing.JButton();
-        jButtonEmpleado = new javax.swing.JButton();
+        jButtonAcceso = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonAdmin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonAdmin.setText("Login Administrador");
-        jButtonAdmin.setMargin(new java.awt.Insets(4, 7, 4, 7));
-        jButtonAdmin.setMaximumSize(new java.awt.Dimension(200, 200));
-        jButtonAdmin.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAcceso.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButtonAcceso.setText("Acceso");
+        jButtonAcceso.setMargin(new java.awt.Insets(4, 7, 4, 7));
+        jButtonAcceso.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButtonAcceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdminActionPerformed(evt);
-            }
-        });
-
-        jButtonEmpleado.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButtonEmpleado.setText("Login Empleado");
-        jButtonEmpleado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEmpleadoActionPerformed(evt);
+                jButtonAccesoActionPerformed(evt);
             }
         });
 
@@ -84,23 +76,20 @@ public class Sistema extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAcceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(61, 61, 61)
+                .addComponent(jButtonAcceso, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(75, 75, 75))
         );
 
         pack();
@@ -111,17 +100,11 @@ public class Sistema extends javax.swing.JFrame{
         System.exit(0); 
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
-        LoginAdmin login = new LoginAdmin();
+    private void jButtonAccesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccesoActionPerformed
+        Login login = new Login();
         this.setVisible(false);
         login.setVisible(true);
-    }//GEN-LAST:event_jButtonAdminActionPerformed
-
-    private void jButtonEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmpleadoActionPerformed
-        LoginEmpleado login = new LoginEmpleado();
-        this.setVisible(false);
-        login.setVisible(true);
-    }//GEN-LAST:event_jButtonEmpleadoActionPerformed
+    }//GEN-LAST:event_jButtonAccesoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,8 +146,7 @@ public class Sistema extends javax.swing.JFrame{
     }
 MySQL db = new MySQL();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdmin;
-    private javax.swing.JButton jButtonEmpleado;
+    private javax.swing.JButton jButtonAcceso;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

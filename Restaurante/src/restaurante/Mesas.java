@@ -5,6 +5,10 @@
  */
 package restaurante;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Antho
@@ -216,6 +220,12 @@ public class Mesas extends javax.swing.JFrame{
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         agregarCuenta.setVisible(true);
         this.setVisible(false);
+        int temp= db.contarCuentas();
+        try {
+            db.insertarCuentaKey();
+        } catch (SQLException ex) {
+            Logger.getLogger(Mesas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
@@ -257,6 +267,7 @@ public class Mesas extends javax.swing.JFrame{
             }
         });
     }
+    MySQL db = new MySQL();
     AgregarCuenta agregarCuenta = new AgregarCuenta();
     Mesero mesero = new Mesero();
     // Variables declaration - do not modify//GEN-BEGIN:variables

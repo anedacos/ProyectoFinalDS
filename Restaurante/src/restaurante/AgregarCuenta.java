@@ -5,11 +5,21 @@
  */
 package restaurante;
 
+import java.awt.FlowLayout;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Antho
  */
-public class AgregarCuenta extends javax.swing.JFrame{
+public class AgregarCuenta extends javax.swing.JFrame {
 
     /**
      * Creates new form AgregarCuenta
@@ -27,7 +37,6 @@ public class AgregarCuenta extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButtonSopas = new javax.swing.JButton();
@@ -43,19 +52,11 @@ public class AgregarCuenta extends javax.swing.JFrame{
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("No. Orden:");
 
         jLabel2.setText("Cliente:");
 
@@ -114,32 +115,24 @@ public class AgregarCuenta extends javax.swing.JFrame{
 
         jLabel5.setText("Combos");
 
+        jTextFieldNombreDelCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreDelClienteActionPerformed(evt);
+            }
+        });
+
         jButton6.setText("Combo 1");
 
         jButton7.setText("Combo 2");
 
         jButton8.setText("Combo 3");
 
-        jLabel6.setText("Hora de ingreso:");
-
-        jLabel7.setText("Estado:");
-
-        jLabel8.setText("Tiempo del pedido:");
-
-        jLabel9.setText("-----");
-
-        jLabel10.setText("-----");
-
-        jLabel11.setText("-----");
-
-        jLabel12.setText("-----");
-
         jButton9.setText("AGREGAR");
 
-        jButton10.setText("CANCELAR");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCancelar.setText("CANCELAR");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                jButtonCancelarActionPerformed(evt);
             }
         });
 
@@ -148,20 +141,12 @@ public class AgregarCuenta extends javax.swing.JFrame{
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(37, 37, 37))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -170,66 +155,49 @@ public class AgregarCuenta extends javax.swing.JFrame{
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jButtonSopas)))
-                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addComponent(jButtonEnsaladas)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jTextFieldNombreDelCliente)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonGaseosas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(152, 152, 152)
+                                .addComponent(jButtonEnsaladas))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldNombreDelCliente))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonAlcoholicas))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonArroces)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(142, 142, 142))
-                            .addComponent(jButtonAguas))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonArroces)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(142, 142, 142))
+                        .addComponent(jButtonAguas))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(jButton6))
-                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addComponent(jButtonJugosNaturales)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonGaseosas)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(92, 92, 92)
+                                            .addComponent(jButtonJugosNaturales))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(4, 4, 4)
+                                            .addComponent(jButton6)
+                                            .addGap(31, 31, 31)
+                                            .addComponent(jButton7)))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton8))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -247,11 +215,10 @@ public class AgregarCuenta extends javax.swing.JFrame{
                             .addComponent(jButtonArroces)
                             .addComponent(jButtonEnsaladas))
                         .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonAlcoholicas)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jButtonGaseosas)
-                                .addComponent(jButtonAguas)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonGaseosas)
+                            .addComponent(jButtonAguas)
+                            .addComponent(jButtonAlcoholicas))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonJugosNaturales)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -261,11 +228,12 @@ public class AgregarCuenta extends javax.swing.JFrame{
                             .addComponent(jButton6)
                             .addComponent(jButton7)
                             .addComponent(jButton8))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -274,43 +242,59 @@ public class AgregarCuenta extends javax.swing.JFrame{
     private void jButtonArrocesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonArrocesActionPerformed
         PlatosCategorias pc = new PlatosCategorias("arroces");
         pc.setVisible(true);
+        actualizarNombre();
     }//GEN-LAST:event_jButtonArrocesActionPerformed
 
     private void jButtonSopasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSopasActionPerformed
         PlatosCategorias pc = new PlatosCategorias("sopas");
         pc.setVisible(true);
+        actualizarNombre();
     }//GEN-LAST:event_jButtonSopasActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         Mesas mesas = new Mesas();
         mesas.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton10ActionPerformed
+        try {
+            db.borrarCuentaKey();
+        } catch (SQLException ex) {
+            Logger.getLogger(AgregarCuenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonEnsaladasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnsaladasActionPerformed
         PlatosCategorias pc = new PlatosCategorias("ensaladas");
         pc.setVisible(true);
+        actualizarNombre();
     }//GEN-LAST:event_jButtonEnsaladasActionPerformed
 
     private void jButtonGaseosasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGaseosasActionPerformed
         PlatosCategorias pc = new PlatosCategorias("gaseosas");
         pc.setVisible(true);
+        actualizarNombre();
     }//GEN-LAST:event_jButtonGaseosasActionPerformed
 
     private void jButtonAguasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAguasActionPerformed
         PlatosCategorias pc = new PlatosCategorias("aguas");
         pc.setVisible(true);
+        actualizarNombre();
     }//GEN-LAST:event_jButtonAguasActionPerformed
 
     private void jButtonAlcoholicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlcoholicasActionPerformed
         PlatosCategorias pc = new PlatosCategorias("alcohol");
         pc.setVisible(true);
+        actualizarNombre();
     }//GEN-LAST:event_jButtonAlcoholicasActionPerformed
 
     private void jButtonJugosNaturalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJugosNaturalesActionPerformed
         PlatosCategorias pc = new PlatosCategorias("jugos naturales");
         pc.setVisible(true);
+        actualizarNombre();
     }//GEN-LAST:event_jButtonJugosNaturalesActionPerformed
+
+    private void jTextFieldNombreDelClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreDelClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreDelClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,8 +331,15 @@ public class AgregarCuenta extends javax.swing.JFrame{
         });
     }
 
+    public void actualizarNombre() {
+        try {
+            db.asignarNombreCliente(jTextFieldNombreDelCliente.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(AgregarCuenta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    MySQL db = new MySQL();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -356,22 +347,17 @@ public class AgregarCuenta extends javax.swing.JFrame{
     private javax.swing.JButton jButtonAguas;
     private javax.swing.JButton jButtonAlcoholicas;
     private javax.swing.JButton jButtonArroces;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonEnsaladas;
     private javax.swing.JButton jButtonGaseosas;
     private javax.swing.JButton jButtonJugosNaturales;
     private javax.swing.JButton jButtonSopas;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextFieldNombreDelCliente;
     // End of variables declaration//GEN-END:variables
+
 }

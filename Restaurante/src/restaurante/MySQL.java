@@ -79,11 +79,6 @@ public class MySQL {
                     + "'" + name + "'" + "," + "'" + lastname
                     + "'" + "," + "'" + age + "'" + "," + "'"
                     + gender + "'" + ")";
-            /*+ "\"" + ID + "\", "
-                    + "\"" + name + "\", "
-                    + "\"" + lastname + "\", "
-                    + "\"" + age + "\", "
-                    + "\"" + gender + "\")"*/
             Statement st = Conexion.createStatement();
             st.executeUpdate(Query);
             JOptionPane.showMessageDialog(null, "Datos almacenados de forma exitosa");
@@ -190,7 +185,7 @@ public class MySQL {
 
     public void obtenerPlatosPorCategoria(JList<String> jList, String categoria) {
         try {
-            String Query = "SELECT nombre FROM menu where categoria=" + "'" +categoria+ "'";
+            String Query = "SELECT nombre FROM menu where categoria=" + "'" + categoria + "'";
             Statement st = Conexion.createStatement();
             java.sql.ResultSet resultSet;
             resultSet = st.executeQuery(Query);
@@ -205,6 +200,41 @@ public class MySQL {
             JOptionPane.showMessageDialog(null, "Error en la adquisicion de datos");
         }
     }
+
+    public int contarCuentas() {
+        try {
+            String Query = "select count(*) from cuentas";
+            Statement st = Conexion.createStatement();
+            java.sql.ResultSet resultSet;
+            resultSet = st.executeQuery(Query);
+            while (resultSet.next()) {
+                System.out.println(Integer.parseInt(resultSet.getString("count(*)")));
+                return Integer.parseInt(resultSet.getString("count(*)"));
+            }
+
+            resultSet.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la adquisicion de datos");
+        }
+        return 0;
+    }
+
+    public void insertarCuentaKey() throws SQLException {
+        String Query = "insert into cuentas(orden) values (" + (contarCuentas() + 1) + ")";
+        Statement st = Conexion.createStatement();
+        st.executeUpdate(Query);
+    }
+    public void borrarCuentaKey() throws SQLException {
+        String Query = "delete from cuentas where orden="+contarCuentas();
+        Statement st = Conexion.createStatement();
+        st.executeUpdate(Query);
+    }
+    public void asignarNombreCliente(String nombre) throws SQLException{
+        String Query = "UPDATE cuentas SET cliente = '"+ nombre +"' WHERE orden="+contarCuentas();
+        Statement st = Conexion.createStatement();
+        st.executeUpdate(Query);
+    }
+    
 
     private Object[][] ResultSetToArray(ResultSet rs) {
         Object obj[][] = null;

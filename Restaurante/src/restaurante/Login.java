@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author Antho
  */
-public class LoginAdmin extends javax.swing.JFrame{
+public class Login extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public LoginAdmin() {
+    public Login() {
         initComponents();
     }
 
@@ -60,7 +60,7 @@ public class LoginAdmin extends javax.swing.JFrame{
             }
         });
 
-        jLabel3.setText("LOGIN ADMINISTRADOR");
+        jLabel3.setText("LOGIN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,16 +85,16 @@ public class LoginAdmin extends javax.swing.JFrame{
                                     .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                                     .addComponent(jTextFieldContrasenia)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(125, 125, 125)
                         .addComponent(jLabel3)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,19 +114,35 @@ public class LoginAdmin extends javax.swing.JFrame{
 
     private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
         try {
-        	if(db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Administrador") && db.obtenerContrasenia("empleado",jTextFieldUsuario.getText()).equals(jTextFieldContrasenia.getText())){
-                   //JOptionPane.showMessageDialog(null, "Si es");
+            if (db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Administrador") && db.obtenerContrasenia("empleado", jTextFieldUsuario.getText()).equals(jTextFieldContrasenia.getText())) {
+                //JOptionPane.showMessageDialog(null, "Si es");
                 this.setVisible(false);
                 administrador.setVisible(true);
-            }else{JOptionPane.showMessageDialog(null, "Acceso denegado, usted no es un administrador");}
-                } catch (SQLException ex) {
-            Logger.getLogger(LoginAdmin.class.getName()).log(Level.SEVERE, null, ex);
+            } else if (!db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Administrador") && !db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("nulo") && db.obtenerContrasenia("empleado", jTextFieldUsuario.getText()).equals(jTextFieldContrasenia.getText())) {
+                if (db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Mesero")) {
+                    Mesero mesero = new Mesero();
+                    this.dispose();
+                    mesero.setVisible(true);
+                }
+                if (db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Cocinero")) {
+                }
+                if (db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Cajero")) {
+                }
+                if (db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("CMesas")) {
+                }
+                if (db.obtenerCargo("empleado", jTextFieldUsuario.getText()).equals("Cpedidos")) {
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Acceso denegado usuario o password incorrecto");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonAceptarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         this.setVisible(false);
-        sistema.setVisible(true);        
+        sistema.setVisible(true);
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
@@ -146,27 +162,29 @@ public class LoginAdmin extends javax.swing.JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginAdmin().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
-Administrador administrador = new Administrador();
-MySQL db = new MySQL();
-Sistema sistema = new Sistema();
+    Administrador administrador = new Administrador();
+    MySQL db = new MySQL();
+    Sistema sistema = new Sistema();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAceptar;
     private javax.swing.JButton jButtonCancelar;
